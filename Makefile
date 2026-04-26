@@ -20,6 +20,7 @@ SIM_DESTINATION    := generic/platform=iOS Simulator
 DEVICE_DESTINATION := generic/platform=iOS
 
 SIMULATOR_NAME     ?= iPhone 16
+SIMULATOR_UDID     = ${shell xcrun simctl list devices available | sed -nE 's/^[[:space:]]*$(SIMULATOR_NAME)( \([^)]*\))? \(([A-F0-9-]+)\).*/\2/p' | head -1}
 BUNDLE_ID          := app.lookinside.example.ios
 
 SWIFTFORMAT_EXCLUDES := build,.build,DerivedData
@@ -71,6 +72,7 @@ help:
 	@echo ""
 	@echo "Variables:"
 	@echo "  SIMULATOR_NAME     Simulator device name (default: iPhone 16)"
+	@echo "  SIMULATOR_UDID     Simulator UDID resolved from SIMULATOR_NAME"
 	@echo "  DERIVED_DATA       Derived data path (default: /private/tmp/lookinside-example-ios-deriveddata)"
 
 # =============================================================================
@@ -105,17 +107,19 @@ build-device:
 # =============================================================================
 
 boot:
-	@xcrun simctl boot "$(SIMULATOR_NAME)" 2>/dev/null || true
+	@if [ -z "$(SIMULATOR_UDID)" ]; then echo "Simulator not found: $(SIMULATOR_NAME)" >&2; exit 1; fi
+	@xcrun simctl boot "$(SIMULATOR_UDID)" 2>/dev/null || true
 	open -a Simulator
 
 install: build-sim boot
 	@APP_PATH=$$(find "$(DERIVED_DATA)/Build/Products" -name "$(SCHEME).app" -type d | head -1); \
 	if [ -z "$$APP_PATH" ]; then echo "App bundle not found under $(DERIVED_DATA)" >&2; exit 1; fi; \
 	echo "Installing $$APP_PATH"; \
-	xcrun simctl install "$(SIMULATOR_NAME)" "$$APP_PATH"
+	xcrun simctl install "$(SIMULATOR_UDID)" "$$APP_PATH"
 
 launch:
-	xcrun simctl launch --console-pty "$(SIMULATOR_NAME)" "$(BUNDLE_ID)"
+	@if [ -z "$(SIMULATOR_UDID)" ]; then echo "Simulator not found: $(SIMULATOR_NAME)" >&2; exit 1; fi
+	xcrun simctl launch "$(SIMULATOR_UDID)" "$(BUNDLE_ID)"
 
 run: install launch
 
