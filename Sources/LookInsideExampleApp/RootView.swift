@@ -1,5 +1,5 @@
-import SwiftUI
 import LookinServer
+import SwiftUI
 
 struct RootView: View {
     var body: some View {
@@ -15,12 +15,12 @@ struct RootView: View {
 }
 
 private struct UIKitBridgeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UINavigationController {
+    func makeUIViewController(context _: Context) -> UINavigationController {
         let root = LegacyTableViewController()
         return UINavigationController(rootViewController: root)
     }
 
-    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
+    func updateUIViewController(_: UINavigationController, context _: Context) {}
 }
 
 private final class LegacyTableViewController: UITableViewController {
@@ -30,7 +30,9 @@ private final class LegacyTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 12 }
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        12
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)

@@ -33,8 +33,8 @@ Or open `LookInsideExample-iOS.xcodeproj` in Xcode and run.
 
 ## Layout
 
-| Path | Role |
-| --- | --- |
-| [`Sources/LookInsideExampleApp/`](Sources/LookInsideExampleApp/) | `@main` app, SwiftUI showcase, UIKit bridge, status tab |
-| [`LookInsideExample-iOS.xcodeproj`](LookInsideExample-iOS.xcodeproj/) | Hand-maintained Xcode project |
-| [`Makefile`](Makefile) | Convenience wrappers around `xcodebuild` |
+| Path                                                                  | Role                                                    |
+| --------------------------------------------------------------------- | ------------------------------------------------------- |
+| [`Sources/LookInsideExampleApp/`](Sources/LookInsideExampleApp/)      | `@main` app, SwiftUI showcase, UIKit bridge, status tab |
+| [`LookInsideExample-iOS.xcodeproj`](LookInsideExample-iOS.xcodeproj/) | Hand-maintained Xcode project                           |
+| [`Makefile`](Makefile)                                                | Convenience wrappers around `xcodebuild`                |

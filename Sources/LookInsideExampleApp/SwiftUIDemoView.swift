@@ -160,7 +160,7 @@ struct SwiftUIDemoView: View {
                     .fill(.thinMaterial)
                     .frame(height: 96)
                 HStack(spacing: 16) {
-                    ForEach(0..<5, id: \.self) { index in
+                    ForEach(0 ..< 5, id: \.self) { index in
                         Circle()
                             .fill(palette.primary.opacity(0.22 + Double(index) * 0.11))
                             .frame(width: CGFloat(24 + index * 6), height: CGFloat(24 + index * 6))
@@ -188,7 +188,7 @@ struct SwiftUIDemoView: View {
             .pickerStyle(.segmented)
 
             VStack(alignment: .leading, spacing: 8) {
-                Slider(value: $progress, in: 0.1...1.0)
+                Slider(value: $progress, in: 0.1 ... 1.0)
                 Gauge(value: progress) {
                     Text("Progress")
                 } currentValueLabel: {
@@ -436,7 +436,9 @@ private enum DemoMode: String, CaseIterable, Identifiable {
     case animate
     case stress
 
-    var id: String { rawValue }
+    var id: String {
+        rawValue
+    }
 
     var title: String {
         switch self {

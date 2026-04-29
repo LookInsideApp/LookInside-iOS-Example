@@ -1,5 +1,5 @@
-import SwiftUI
 import LookinServer
+import SwiftUI
 
 @main
 struct LookInsideExampleApp: App {
