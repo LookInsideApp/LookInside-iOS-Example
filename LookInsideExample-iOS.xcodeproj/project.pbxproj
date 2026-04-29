@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		15285E01F9FE3C0D4ECB195D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99A94349CB6E3902E291B7E /* RootView.swift */; };
+		655A4D4ED325D7648CDD201A /* SwiftUIDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C307A2CF231AA192BA8065E /* SwiftUIDemoView.swift */; };
 		8F77FD41C881448253EFAAA0 /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 09C364AE6347CFC59147A410 /* LookinServer */; };
 		B479B95A52A53F15437A6004 /* LookInsideExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C307A2CF231AA192BA8065E /* SwiftUIDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDemoView.swift; sourceTree = "<group>"; };
 		7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookInsideExampleApp.swift; sourceTree = "<group>"; };
 		86DBE1188AE093AB9D554244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		94CD6168DCF7475BB1D51569 /* LookInsideServer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LookInsideServer; path = ../LookInside-Server; sourceTree = SOURCE_ROOT; };
+		998D26E64EC64E0E85659CC5 /* LookInside-Server */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "LookInside-Server"; path = "../LookInside-Server"; sourceTree = SOURCE_ROOT; };
 		C9AF067150078B98C9C8EAD2 /* LookInsideExample-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "LookInsideExample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99A94349CB6E3902E291B7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +65,7 @@
 				86DBE1188AE093AB9D554244 /* Info.plist */,
 				7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */,
 				F99A94349CB6E3902E291B7E /* RootView.swift */,
+				0C307A2CF231AA192BA8065E /* SwiftUIDemoView.swift */,
 			);
 			path = LookInsideExampleApp;
 			sourceTree = "<group>";
@@ -70,7 +73,7 @@
 		DC585415755ADF401E14CC32 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				94CD6168DCF7475BB1D51569 /* LookInsideServer */,
+				998D26E64EC64E0E85659CC5 /* LookInside-Server */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -122,7 +125,7 @@
 			mainGroup = 2940E830AC22AA9E64F69F52;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInside-Server" */,
+				7F307C06C074E3402BE1E684 /* XCLocalSwiftPackageReference "../LookInside-Server" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 76A3142F2E28311C669A37C6 /* Products */;
@@ -141,6 +144,7 @@
 			files = (
 				B479B95A52A53F15437A6004 /* LookInsideExampleApp.swift in Sources */,
 				15285E01F9FE3C0D4ECB195D /* RootView.swift in Sources */,
+				655A4D4ED325D7648CDD201A /* SwiftUIDemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +344,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInside-Server" */ = {
+		7F307C06C074E3402BE1E684 /* XCLocalSwiftPackageReference "../LookInside-Server" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../LookInside-Server;
+			relativePath = "../LookInside-Server";
 		};
 /* End XCLocalSwiftPackageReference section */
 
