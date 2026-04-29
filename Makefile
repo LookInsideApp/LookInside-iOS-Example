@@ -32,13 +32,12 @@ XCODEBUILD := xcodebuild \
     -skipMacroValidation \
     -skipPackagePluginValidation
 
-# Simulator needs an ad-hoc signature ("-") to launch on iOS 14+; project.yml
-# already sets that for non-iphoneos sdks. Real-device builds stay unsigned.
+# Simulator needs an ad-hoc signature ("-") to launch on iOS 14+.
+# Real-device builds stay unsigned.
 SIM_SIGN_FLAGS    := CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
 DEVICE_SIGN_FLAGS := CODE_SIGNING_ALLOWED=NO  CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
 
 .PHONY: all help \
-        generate \
         build build-sim build-device \
         run boot install launch \
         format format-lint \
@@ -51,9 +50,6 @@ DEVICE_SIGN_FLAGS := CODE_SIGNING_ALLOWED=NO  CODE_SIGNING_REQUIRED=NO CODE_SIGN
 all: build-sim
 
 help:
-	@echo "Generate:"
-	@echo "  generate           Regenerate the Xcode project from project.yml (requires xcodegen)"
-	@echo ""
 	@echo "Build:"
 	@echo "  build              Alias for build-sim"
 	@echo "  build-sim          Build for iOS Simulator (generic)"
@@ -76,17 +72,6 @@ help:
 	@echo "  SIMULATOR_NAME     Simulator device name (default: iPhone 16)"
 	@echo "  SIMULATOR_UDID     Simulator UDID resolved from SIMULATOR_NAME"
 	@echo "  DERIVED_DATA       Derived data path (default: /private/tmp/lookinside-example-ios-deriveddata)"
-
-# =============================================================================
-# Generate
-# =============================================================================
-
-generate:
-	xcodegen generate
-
-# =============================================================================
-# Build
-# =============================================================================
 
 build: build-sim
 

@@ -4,64 +4,13 @@ import LookinServer
 struct RootView: View {
     var body: some View {
         TabView {
-            SwiftUIShowcaseView()
+            SwiftUIDemoView()
                 .tabItem { Label("SwiftUI", systemImage: "square.stack.3d.up.fill") }
             UIKitBridgeView()
                 .tabItem { Label("UIKit", systemImage: "rectangle.stack.fill") }
             StatusView()
                 .tabItem { Label("Status", systemImage: "info.circle") }
         }
-    }
-}
-
-private struct SwiftUIShowcaseView: View {
-    @State private var counter: Int = 0
-    @State private var toggle: Bool = true
-    @State private var sliderValue: Double = 0.42
-    @State private var pickerSelection: Int = 1
-    @State private var text: String = "LookInside"
-
-    var body: some View {
-        NavigationView {
-            Form {
-                Section("Controls") {
-                    Stepper("Counter: \(counter)", value: $counter)
-                    Toggle("Toggle", isOn: $toggle)
-                    Slider(value: $sliderValue)
-                    TextField("Text", text: $text)
-                    Picker("Picker", selection: $pickerSelection) {
-                        Text("Alpha").tag(0)
-                        Text("Beta").tag(1)
-                        Text("Gamma").tag(2)
-                    }
-                }
-                Section("List") {
-                    ForEach(0..<5) { i in
-                        HStack {
-                            Image(systemName: "circle.fill")
-                                .foregroundStyle(.tint)
-                            Text("Row \(i)")
-                            Spacer()
-                            Text("\(i * counter)")
-                                .monospacedDigit()
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                }
-                Section("Cards") {
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                        ForEach(0..<4) { i in
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(.tint.opacity(0.15))
-                                .overlay(Text("Card \(i)").font(.headline))
-                                .frame(height: 80)
-                        }
-                    }
-                }
-            }
-            .navigationTitle("SwiftUI Showcase")
-        }
-        .navigationViewStyle(.stack)
     }
 }
 

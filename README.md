@@ -11,15 +11,13 @@ This repo is consumed as a submodule of the private `LookInside-MonoRepo` parent
 ## Build
 
 ```bash
-xcodegen generate          # regenerate the .xcodeproj from project.yml
 xcodebuild -scheme LookInsideExample-iOS \
+           -project LookInsideExample-iOS.xcodeproj \
            -destination 'platform=iOS Simulator,name=iPhone 16' \
            -skipMacroValidation -allowProvisioningUpdates build
 ```
 
 Or open `LookInsideExample-iOS.xcodeproj` in Xcode and run.
-
-Re-run `xcodegen generate` after editing `project.yml`.
 
 ---
 
@@ -38,5 +36,5 @@ Re-run `xcodegen generate` after editing `project.yml`.
 | Path | Role |
 | --- | --- |
 | [`Sources/LookInsideExampleApp/`](Sources/LookInsideExampleApp/) | `@main` app, SwiftUI showcase, UIKit bridge, status tab |
-| [`project.yml`](project.yml) | xcodegen spec — regenerate the `.xcodeproj` after edits |
-| [`Makefile`](Makefile) | Convenience wrappers for the commands above |
+| [`LookInsideExample-iOS.xcodeproj`](LookInsideExample-iOS.xcodeproj/) | Hand-maintained Xcode project |
+| [`Makefile`](Makefile) | Convenience wrappers around `xcodebuild` |
