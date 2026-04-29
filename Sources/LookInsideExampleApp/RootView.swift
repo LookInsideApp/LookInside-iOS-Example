@@ -1,4 +1,4 @@
-import LookinServer
+import LookInsideServerStatic
 import SwiftUI
 
 struct RootView: View {

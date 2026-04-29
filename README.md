@@ -1,10 +1,10 @@
 # LookInside-iOS-Example
 
-> Internal demo fixture. Not for public distribution.
+> Public SwiftUI demo fixture for trying LookInside end to end.
 
-Minimal SwiftUI iOS app used as the end-to-end test target for [`LookInside-Server`](https://github.com/LookInsideApp/LookInside-Server) and the LookInside macOS host.
+Minimal SwiftUI iOS app used as the end-to-end test target for the LookInside macOS host and the prebuilt server runtime published by [`LookInside-Release`](https://github.com/LookInsideApp/LookInside-Release).
 
-This repo is consumed as a submodule of the private `LookInside-MonoRepo` parent. It expects `LookInside-Server/` to sit as a sibling directory and resolves it via SwiftPM `path: ../LookInside-Server`.
+By default this project consumes the public `LookInsideServerStatic` SwiftPM binary product from `LookInside-Release`, so it can build without access to the private `LookInside-Server` source checkout. Monorepo maintainers can temporarily switch the package dependency to a local `../LookInside-Server` checkout when developing the server itself.
 
 ---
 
