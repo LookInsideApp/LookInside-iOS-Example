@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		107C9B3E3ED1E1EF3DBBDFE1 /* LookInsideExtraSwiftUserInterfaceSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D1B53415B471BC43C4E4F105 /* LookInsideExtraSwiftUserInterfaceSupport */; };
 		15285E01F9FE3C0D4ECB195D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99A94349CB6E3902E291B7E /* RootView.swift */; };
 		8F77FD41C881448253EFAAA0 /* LookinServer in Frameworks */ = {isa = PBXBuildFile; productRef = 09C364AE6347CFC59147A410 /* LookinServer */; };
 		B479B95A52A53F15437A6004 /* LookInsideExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05938110209978E046226AD9 /* LookInsideExtra-Shim */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "LookInsideExtra-Shim"; path = "../LookInsideExtra-Shim"; sourceTree = SOURCE_ROOT; };
 		7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookInsideExampleApp.swift; sourceTree = "<group>"; };
 		86DBE1188AE093AB9D554244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		94CD6168DCF7475BB1D51569 /* LookInsideServer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LookInsideServer; path = ../LookInsideServer; sourceTree = SOURCE_ROOT; };
@@ -26,6 +28,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F77FD41C881448253EFAAA0 /* LookinServer in Frameworks */,
+				107C9B3E3ED1E1EF3DBBDFE1 /* LookInsideExtraSwiftUserInterfaceSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +73,7 @@
 		DC585415755ADF401E14CC32 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				05938110209978E046226AD9 /* LookInsideExtra-Shim */,
 				94CD6168DCF7475BB1D51569 /* LookInsideServer */,
 			);
 			name = Packages;
@@ -92,6 +96,7 @@
 			name = "LookInsideExample-iOS";
 			packageProductDependencies = (
 				09C364AE6347CFC59147A410 /* LookinServer */,
+				D1B53415B471BC43C4E4F105 /* LookInsideExtraSwiftUserInterfaceSupport */,
 			);
 			productName = "LookInsideExample-iOS";
 			productReference = C9AF067150078B98C9C8EAD2 /* LookInsideExample-iOS.app */;
@@ -122,6 +127,7 @@
 			mainGroup = 2940E830AC22AA9E64F69F52;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
+				CA1EEB9E3410CCCE854B59B9 /* XCLocalSwiftPackageReference "../LookInsideExtra-Shim" */,
 				1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInsideServer" */,
 			);
 			preferredProjectObjectVersion = 77;
@@ -338,12 +344,20 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../LookInsideServer;
 		};
+		CA1EEB9E3410CCCE854B59B9 /* XCLocalSwiftPackageReference "../LookInsideExtra-Shim" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../LookInsideExtra-Shim";
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		09C364AE6347CFC59147A410 /* LookinServer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = LookinServer;
+		};
+		D1B53415B471BC43C4E4F105 /* LookInsideExtraSwiftUserInterfaceSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LookInsideExtraSwiftUserInterfaceSupport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

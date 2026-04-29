@@ -17,6 +17,13 @@ settings:
 packages:
   LookInsideServer:
     path: ../LookInsideServer
+  # Shim XCFramework that bolts SwiftUI debug support onto the LookInsideServer
+  # already linked above. Local path keeps the monorepo self-contained; the
+  # Shim's Package.swift transitively re-declares LookInsideServer, but
+  # SwiftPM's local-path declaration above overrides the transitive remote so
+  # both packages resolve to the same sibling.
+  LookInsideExtra-Shim:
+    path: ../LookInsideExtra-Shim
 
 targets:
   LookInsideExample-iOS:
@@ -43,3 +50,5 @@ targets:
     dependencies:
       - package: LookInsideServer
         product: LookinServer
+      - package: LookInsideExtra-Shim
+        product: LookInsideExtraSwiftUserInterfaceSupport
