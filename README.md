@@ -27,7 +27,7 @@ Or open `LookInsideExample-iOS.xcodeproj` in Xcode and run.
 2. On the same Mac, run the `LookInside` host app from the parent monorepo.
 3. The host auto-discovers the simulator app via Peertalk on `47164–47169`.
 4. Click any view in the host to inspect the live UIKit hierarchy.
-5. SwiftUI hierarchy inspection requires the `feat/swiftui-support` branch in `LookInside`.
+5. SwiftUI hierarchy inspection requires an activated host so the host can load the `LookInsideExtraSwiftUserInterfaceSupport` XCFramework served by `LookInside-Release`.
 
 ---
 
