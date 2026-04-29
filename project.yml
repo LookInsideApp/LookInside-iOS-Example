@@ -9,10 +9,18 @@ settings:
   base:
     SWIFT_VERSION: "5.10"
     DEVELOPMENT_TEAM: ""
-    CODE_SIGN_STYLE: Automatic
-    CODE_SIGNING_ALLOWED: NO
-    CODE_SIGN_IDENTITY: ""
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGNING_ALLOWED: YES
+    CODE_SIGNING_REQUIRED: NO
     ENABLE_USER_SCRIPT_SANDBOXING: NO
+  configs:
+    Debug:
+      CODE_SIGN_IDENTITY[sdk=iphoneos*]: ""
+      CODE_SIGNING_ALLOWED[sdk=iphoneos*]: NO
+    Release:
+      CODE_SIGN_IDENTITY[sdk=iphoneos*]: ""
+      CODE_SIGNING_ALLOWED[sdk=iphoneos*]: NO
 
 packages:
   LookInsideServer:

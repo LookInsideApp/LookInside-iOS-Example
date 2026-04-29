@@ -30,10 +30,12 @@ XCODEBUILD := xcodebuild \
     -configuration $(CONFIGURATION) \
     -derivedDataPath "$(DERIVED_DATA)" \
     -skipMacroValidation \
-    -skipPackagePluginValidation \
-    CODE_SIGNING_ALLOWED=NO \
-    CODE_SIGNING_REQUIRED=NO \
-    CODE_SIGN_IDENTITY=""
+    -skipPackagePluginValidation
+
+# Simulator needs an ad-hoc signature ("-") to launch on iOS 14+; project.yml
+# already sets that for non-iphoneos sdks. Real-device builds stay unsigned.
+SIM_SIGN_FLAGS    := CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
+DEVICE_SIGN_FLAGS := CODE_SIGNING_ALLOWED=NO  CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
 
 .PHONY: all help \
         generate \
@@ -93,6 +95,7 @@ build-sim:
 	HOME="$(BUILD_HOME)" XDG_CACHE_HOME="$(XDG_CACHE_HOME)" CLANG_MODULE_CACHE_PATH="$(MODULE_CACHE)" SWIFTPM_MODULECACHE_OVERRIDE="$(MODULE_CACHE)" $(XCODEBUILD) \
 	    -scheme $(SCHEME) \
 	    -destination "$(SIM_DESTINATION)" \
+	    $(SIM_SIGN_FLAGS) \
 	    build
 
 build-device:
@@ -100,6 +103,7 @@ build-device:
 	HOME="$(BUILD_HOME)" XDG_CACHE_HOME="$(XDG_CACHE_HOME)" CLANG_MODULE_CACHE_PATH="$(MODULE_CACHE)" SWIFTPM_MODULECACHE_OVERRIDE="$(MODULE_CACHE)" $(XCODEBUILD) \
 	    -scheme $(SCHEME) \
 	    -destination "$(DEVICE_DESTINATION)" \
+	    $(DEVICE_SIGN_FLAGS) \
 	    build
 
 # =============================================================================
