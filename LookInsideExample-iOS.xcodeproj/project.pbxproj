@@ -15,7 +15,7 @@
 /* Begin PBXFileReference section */
 		7CB03C6E33ED0AE241513294 /* LookInsideExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookInsideExampleApp.swift; sourceTree = "<group>"; };
 		86DBE1188AE093AB9D554244 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		94CD6168DCF7475BB1D51569 /* LookInsideServer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LookInsideServer; path = ../LookInsideServer; sourceTree = SOURCE_ROOT; };
+		94CD6168DCF7475BB1D51569 /* LookInsideServer */ = {isa = PBXFileReference; lastKnownFileType = folder; name = LookInsideServer; path = ../LookInside-Server; sourceTree = SOURCE_ROOT; };
 		C9AF067150078B98C9C8EAD2 /* LookInsideExample-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "LookInsideExample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99A94349CB6E3902E291B7E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,7 +122,7 @@
 			mainGroup = 2940E830AC22AA9E64F69F52;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInsideServer" */,
+				1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInside-Server" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 76A3142F2E28311C669A37C6 /* Products */;
@@ -340,9 +340,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInsideServer" */ = {
+		1026D4763B8BBC6657C712EB /* XCLocalSwiftPackageReference "../LookInside-Server" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ../LookInsideServer;
+			relativePath = ../LookInside-Server;
 		};
 /* End XCLocalSwiftPackageReference section */
 

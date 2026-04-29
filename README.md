@@ -4,7 +4,7 @@
 
 Minimal SwiftUI iOS app used as the end-to-end test target for [`LookInsideServer`](https://github.com/LookInsideApp/LookInsideServer) and the LookInside macOS host.
 
-This repo is consumed as a submodule of the private `LookInside-MonoRepo` parent. It expects `LookInsideServer/` to sit as a sibling directory and resolves it via SwiftPM `path: ../LookInsideServer`.
+This repo is consumed as a submodule of the private `LookInside-MonoRepo` parent. It expects `LookInside-Server/` to sit as a sibling directory and resolves it via SwiftPM `path: ../LookInside-Server`.
 
 ---
 

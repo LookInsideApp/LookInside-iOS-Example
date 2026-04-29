@@ -24,7 +24,7 @@ settings:
 
 packages:
   LookInsideServer:
-    path: ../LookInsideServer
+    path: ../LookInside-Server
 
 targets:
   LookInsideExample-iOS:
