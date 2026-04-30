@@ -1,4 +1,3 @@
-import LookInsideServerStatic
 import SwiftUI
 
 struct RootView: View {
@@ -47,14 +46,14 @@ private final class LegacyTableViewController: UITableViewController {
 }
 
 private struct StatusView: View {
-    @State private var isLicensed: Bool = LookInsideServer.isLicensed
+    @State private var isLicensed: Bool = LookInsideServerRuntime.isLicensed
 
     var body: some View {
         NavigationView {
             List {
                 Section("LookInsideServer") {
                     LabeledContent("isLicensed", value: isLicensed ? "YES" : "NO")
-                    Button("Refresh") { isLicensed = LookInsideServer.isLicensed }
+                    Button("Refresh") { isLicensed = LookInsideServerRuntime.isLicensed }
                 }
                 Section("How to use") {
                     Text("1. Run this app on the iOS Simulator.")
@@ -64,7 +63,7 @@ private struct StatusView: View {
             }
             .navigationTitle("Status")
             .onReceive(NotificationCenter.default.publisher(for: .LookInsideServerLicenseStateDidChange)) { _ in
-                isLicensed = LookInsideServer.isLicensed
+                isLicensed = LookInsideServerRuntime.isLicensed
             }
         }
         .navigationViewStyle(.stack)

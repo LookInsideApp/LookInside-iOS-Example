@@ -1,6 +1,11 @@
 .DS_Store
 Package.resolved
+.package.resolved
 xcuserdata/
+LookInsideExample-iOS.xcworkspace/
+!LookInsideExample-iOS.xcodeproj/xcshareddata/
+!LookInsideExample-iOS.xcodeproj/xcshareddata/xcschemes/
+!LookInsideExample-iOS.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 DerivedData/
 build/
 .build/

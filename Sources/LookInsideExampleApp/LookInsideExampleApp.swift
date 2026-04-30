@@ -1,11 +1,10 @@
-import LookInsideServerStatic
 import SwiftUI
 
 @main
 struct LookInsideExampleApp: App {
     init() {
-        _ = LookInsideServer.isLicensed
-        print("[LookInsideExample] launched; LookInsideServer.isLicensed=\(LookInsideServer.isLicensed)")
+        _ = LookInsideServerRuntime.isLicensed
+        print("[LookInsideExample] launched; LookInsideServer.isLicensed=\(LookInsideServerRuntime.isLicensed)")
     }
 
     var body: some Scene {

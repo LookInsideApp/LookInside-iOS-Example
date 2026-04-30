@@ -11,10 +11,13 @@ ROOT_DIR        := $(shell pwd)
 PROJECT         := $(ROOT_DIR)/LookInsideExample-iOS.xcodeproj
 SCHEME          := LookInsideExample-iOS
 CONFIGURATION   := Debug
+TUIST           ?= tuist
 DERIVED_DATA   ?= /private/tmp/lookinside-example-ios-deriveddata
 BUILD_HOME      = $(DERIVED_DATA)/home
 XDG_CACHE_HOME  = $(DERIVED_DATA)/xdg-cache
 MODULE_CACHE    = $(DERIVED_DATA)/ModuleCache.noindex
+DEVELOPMENT_TEAM ?=
+LOOKINSIDE_SERVER_PATH ?=
 
 SIM_DESTINATION    := generic/platform=iOS Simulator
 DEVICE_DESTINATION := generic/platform=iOS
@@ -34,10 +37,11 @@ XCODEBUILD := xcodebuild \
 
 # Simulator needs an ad-hoc signature ("-") to launch on iOS 14+.
 # Real-device builds stay unsigned.
-SIM_SIGN_FLAGS    := CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=
+SIM_SIGN_FLAGS    := CODE_SIGNING_ALLOWED=YES CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM=$(DEVELOPMENT_TEAM)
 DEVICE_SIGN_FLAGS := CODE_SIGNING_ALLOWED=NO  CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
 
 .PHONY: all help \
+        generate \
         build build-sim build-device \
         run boot install launch \
         format format-lint \
@@ -50,6 +54,9 @@ DEVICE_SIGN_FLAGS := CODE_SIGNING_ALLOWED=NO  CODE_SIGNING_REQUIRED=NO CODE_SIGN
 all: build-sim
 
 help:
+	@echo "Project generation:"
+	@echo "  generate           Regenerate $(PROJECT) with Tuist"
+	@echo ""
 	@echo "Build:"
 	@echo "  build              Alias for build-sim"
 	@echo "  build-sim          Build for iOS Simulator (generic)"
@@ -71,7 +78,11 @@ help:
 	@echo "Variables:"
 	@echo "  SIMULATOR_NAME     Simulator device name (default: iPhone 16)"
 	@echo "  SIMULATOR_UDID     Simulator UDID resolved from SIMULATOR_NAME"
+	@echo "  LOOKINSIDE_SERVER_PATH Optional local server package path for Tuist generation"
 	@echo "  DERIVED_DATA       Derived data path (default: /private/tmp/lookinside-example-ios-deriveddata)"
+
+generate:
+	TUIST_LOOKINSIDE_SERVER_PATH="$(LOOKINSIDE_SERVER_PATH)" $(TUIST) generate --no-open
 
 build: build-sim
 
