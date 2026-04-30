@@ -1,6 +1,7 @@
 .DS_Store
 Package.resolved
 .package.resolved
+Configuration/custom.xcconfig
 xcuserdata/
 LookInsideExample-iOS.xcworkspace/
 !LookInsideExample-iOS.xcodeproj/xcshareddata/

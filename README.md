@@ -21,6 +21,18 @@ Or open `LookInsideExample-iOS.xcodeproj` in Xcode and run.
 
 ---
 
+## Code signing
+
+Tuist wires Xcode build settings through `Configuration/*.xcconfig`. The checked-in defaults use automatic signing with an empty development team, so simulator builds work without a local signing setup.
+
+For physical-device runs, create a local `Configuration/custom.xcconfig` file. Debug and Release both include this file automatically when it exists. It is ignored by git and is the place to put machine- or team-specific signing overrides, for example:
+
+```xcconfig
+DEVELOPMENT_TEAM = YOURTEAMID
+```
+
+---
+
 ## Regenerate the Xcode project
 
 Tuist is only needed when changing the project structure.
@@ -57,6 +69,7 @@ The local package must expose the `LookinServer` library product. The generated 
 | --------------------------------------------------------------------- | ------------------------------------------------------- |
 | [`Sources/LookInsideExampleApp/`](Sources/LookInsideExampleApp/)      | `@main` app, SwiftUI showcase, UIKit bridge, status tab |
 | [`Project.swift`](Project.swift)                                      | Tuist project manifest                                  |
+| [`Configuration/`](Configuration/)                                    | Xcode build settings consumed by Tuist                  |
 | [`Tuist/Package.swift`](Tuist/Package.swift)                          | Tuist package dependency settings                       |
 | [`LookInsideExample-iOS.xcodeproj`](LookInsideExample-iOS.xcodeproj/) | Checked-in generated Xcode project                      |
 | [`Makefile`](Makefile)                                                | Convenience wrappers around Tuist and `xcodebuild`      |

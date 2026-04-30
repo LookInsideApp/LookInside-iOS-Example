@@ -16,6 +16,34 @@ let serverPackage: Package = usesLocalServer
         requirement: .upToNextMajor(from: "0.1.10")
     )
 let serverProduct = usesLocalServer ? "LookinServer" : "LookInsideServerStatic"
+let configurations: [Configuration] = [
+    .debug(name: "Debug", xcconfig: "Configuration/Development.xcconfig"),
+    .release(name: "Release", xcconfig: "Configuration/Release.xcconfig"),
+]
+let xcconfigManagedSettings: Set<String> = [
+    "CODE_SIGN_IDENTITY",
+    "CODE_SIGN_STYLE",
+    "CODE_SIGNING_ALLOWED",
+    "CODE_SIGNING_REQUIRED",
+    "CODE_SIGNING_SUPPORTED",
+    "DEBUG_INFORMATION_FORMAT",
+    "DEVELOPMENT_TEAM",
+    "ENABLE_NS_ASSERTIONS",
+    "ENABLE_TESTABILITY",
+    "ENABLE_USER_SCRIPT_SANDBOXING",
+    "IPHONEOS_DEPLOYMENT_TARGET",
+    "ONLY_ACTIVE_ARCH",
+    "PROVISIONING_PROFILE_SPECIFIER",
+    "SDKROOT",
+    "SUPPORTS_MACCATALYST",
+    "SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD",
+    "SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD",
+    "SWIFT_ACTIVE_COMPILATION_CONDITIONS",
+    "SWIFT_COMPILATION_MODE",
+    "SWIFT_OPTIMIZATION_LEVEL",
+    "SWIFT_VERSION",
+    "TARGETED_DEVICE_FAMILY",
+]
 
 let project = Project(
     name: targetName,
@@ -24,33 +52,8 @@ let project = Project(
         serverPackage,
     ],
     settings: .settings(
-        base: [
-            "CODE_SIGNING_ALLOWED": "YES",
-            "CODE_SIGNING_ALLOWED[sdk=iphoneos*]": "NO",
-            "CODE_SIGNING_REQUIRED": "NO",
-            "CODE_SIGN_IDENTITY": "-",
-            "CODE_SIGN_IDENTITY[sdk=iphoneos*]": "",
-            "CODE_SIGN_STYLE": "Manual",
-            "DEVELOPMENT_TEAM": "",
-            "ENABLE_USER_SCRIPT_SANDBOXING": "NO",
-            "IPHONEOS_DEPLOYMENT_TARGET": "16.0",
-            "SDKROOT": "iphoneos",
-            "SWIFT_VERSION": "5.10",
-        ],
-        debug: [
-            "DEBUG_INFORMATION_FORMAT": "dwarf",
-            "ENABLE_TESTABILITY": "YES",
-            "ONLY_ACTIVE_ARCH": "YES",
-            "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "DEBUG",
-            "SWIFT_OPTIMIZATION_LEVEL": "-Onone",
-        ],
-        release: [
-            "DEBUG_INFORMATION_FORMAT": "dwarf-with-dsym",
-            "ENABLE_NS_ASSERTIONS": "NO",
-            "SWIFT_COMPILATION_MODE": "wholemodule",
-            "SWIFT_OPTIMIZATION_LEVEL": "-O",
-        ],
-        defaultSettings: .recommended,
+        configurations: configurations,
+        defaultSettings: .recommended(excluding: xcconfigManagedSettings),
         defaultConfiguration: "Debug"
     ),
     targets: [
@@ -59,7 +62,7 @@ let project = Project(
             destinations: [.iPhone, .iPad],
             product: .app,
             productName: targetName,
-            bundleId: "app.lookinside.example.ios",
+            bundleId: "$(LOOKINSIDE_EXAMPLE_BUNDLE_ID)",
             deploymentTargets: .iOS("16.0"),
             infoPlist: .file(path: "Sources/LookInsideExampleApp/Info.plist"),
             sources: [
@@ -71,16 +74,13 @@ let project = Project(
             settings: .settings(
                 base: [
                     "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
-                    "CODE_SIGN_IDENTITY": "iPhone Developer",
                     "LD_RUNPATH_SEARCH_PATHS": [
                         "$(inherited)",
                         "@executable_path/Frameworks",
                     ],
-                    "PRODUCT_BUNDLE_IDENTIFIER": "app.lookinside.example.ios",
-                    "SDKROOT": "iphoneos",
-                    "TARGETED_DEVICE_FAMILY": "1,2",
                 ],
-                defaultSettings: .recommended
+                configurations: configurations,
+                defaultSettings: .recommended(excluding: xcconfigManagedSettings)
             )
         ),
     ],
@@ -92,5 +92,8 @@ let project = Project(
             runAction: .runAction(configuration: "Debug", executable: .target(targetName)),
             archiveAction: .archiveAction(configuration: "Release")
         ),
+    ],
+    additionalFiles: [
+        "Configuration/Base.xcconfig",
     ]
 )
