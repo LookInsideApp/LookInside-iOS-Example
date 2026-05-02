@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "672DBAD267B146C9EEBAC96C"
-               BuildableName = "LookInsideExample-iOS.app"
-               BlueprintName = "LookInsideExample-iOS"
-               ReferencedContainer = "container:LookInsideExample-iOS.xcodeproj">
+               BlueprintIdentifier = "B0B5DBD01FD27CDD46F8F0F5"
+               BuildableName = "LookInsideExample.app"
+               BlueprintName = "LookInsideExample"
+               ReferencedContainer = "container:LookInsideExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "672DBAD267B146C9EEBAC96C"
-            BuildableName = "LookInsideExample-iOS.app"
-            BlueprintName = "LookInsideExample-iOS"
-            ReferencedContainer = "container:LookInsideExample-iOS.xcodeproj">
+            BlueprintIdentifier = "B0B5DBD01FD27CDD46F8F0F5"
+            BuildableName = "LookInsideExample.app"
+            BlueprintName = "LookInsideExample"
+            ReferencedContainer = "container:LookInsideExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,10 +62,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "672DBAD267B146C9EEBAC96C"
-            BuildableName = "LookInsideExample-iOS.app"
-            BlueprintName = "LookInsideExample-iOS"
-            ReferencedContainer = "container:LookInsideExample-iOS.xcodeproj">
+            BlueprintIdentifier = "B0B5DBD01FD27CDD46F8F0F5"
+            BuildableName = "LookInsideExample.app"
+            BlueprintName = "LookInsideExample"
+            ReferencedContainer = "container:LookInsideExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

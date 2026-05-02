@@ -3,10 +3,10 @@ Package.resolved
 .package.resolved
 Configuration/custom.xcconfig
 xcuserdata/
-LookInsideExample-iOS.xcworkspace/
-!LookInsideExample-iOS.xcodeproj/xcshareddata/
-!LookInsideExample-iOS.xcodeproj/xcshareddata/xcschemes/
-!LookInsideExample-iOS.xcodeproj/xcshareddata/xcschemes/*.xcscheme
+LookInsideExample.xcworkspace/
+!LookInsideExample.xcodeproj/xcshareddata/
+!LookInsideExample.xcodeproj/xcshareddata/xcschemes/
+!LookInsideExample.xcodeproj/xcshareddata/xcschemes/*.xcscheme
 DerivedData/
 build/
 .build/

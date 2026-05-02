@@ -1,7 +1,7 @@
 import Foundation
 import ProjectDescription
 
-let targetName = "LookInsideExample-iOS"
+let targetName = "LookInsideExample"
 let localServerPath = Environment.lookinsideServerPath.getString(default: "")
     .trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -59,7 +59,7 @@ let project = Project(
     targets: [
         .target(
             name: targetName,
-            destinations: [.iPhone, .iPad],
+            destinations: [.iPhone, .iPad, .mac],
             product: .app,
             productName: targetName,
             bundleId: "$(LOOKINSIDE_EXAMPLE_BUNDLE_ID)",

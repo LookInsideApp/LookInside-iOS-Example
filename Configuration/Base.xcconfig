@@ -1,9 +1,9 @@
 //
 //  Base.xcconfig
-//  LookInsideExample-iOS
+//  LookInsideExample
 //
 
-LOOKINSIDE_EXAMPLE_BUNDLE_ID = app.lookinside.example.ios
+LOOKINSIDE_EXAMPLE_BUNDLE_ID = app.lookinside.example
 
 DEVELOPMENT_TEAM =
 CODE_SIGN_STYLE = Automatic
