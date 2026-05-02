@@ -6,6 +6,8 @@ import UIKit
 enum DemoTheme {
     static let cardCorner: CGFloat = 18
     static let bubbleCorner: CGFloat = 18
+    static let contentMaxWidth: CGFloat = 720
+    static let chatContentMaxWidth: CGFloat = 820
 
     static var groupedBackground: Color {
         #if canImport(UIKit)
@@ -71,5 +73,20 @@ extension View {
             RoundedRectangle(cornerRadius: corner, style: .continuous)
                 .fill(DemoTheme.secondaryGroupedBackground)
         )
+    }
+
+    func demoContentWidth(_ maxWidth: CGFloat = DemoTheme.contentMaxWidth) -> some View {
+        self
+            .frame(maxWidth: maxWidth)
+            .frame(maxWidth: .infinity)
+    }
+
+    @ViewBuilder
+    func demoOnChange<V: Equatable>(of value: V, perform action: @escaping () -> Void) -> some View {
+        if #available(iOS 17.0, macOS 14.0, macCatalyst 17.0, *) {
+            self.onChange(of: value) { _, _ in action() }
+        } else {
+            self.onChange(of: value) { _ in action() }
+        }
     }
 }

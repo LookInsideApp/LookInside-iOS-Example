@@ -14,14 +14,15 @@ struct MusicPlayerView: View {
             ScrollView {
                 VStack(spacing: 24) {
                     nowPlayingCard
-                    transportRow
                     progressBar
+                    transportRow
                     secondaryControls
                     upNextSection
                     playlistSection
                 }
-                .padding(.horizontal, 20)
-                .padding(.vertical, 24)
+                .padding(.horizontal, 24)
+                .padding(.vertical, 28)
+                .demoContentWidth(640)
             }
             .background(DemoTheme.groupedBackground)
             .navigationTitle("Listening")
@@ -45,10 +46,9 @@ struct MusicPlayerView: View {
     }
 
     private var nowPlayingCard: some View {
-        VStack(spacing: 18) {
+        VStack(spacing: 20) {
             AlbumArtView(track: current, isPlaying: isPlaying)
-                .frame(maxWidth: 320)
-                .aspectRatio(1, contentMode: .fit)
+                .frame(width: 240, height: 240)
                 .frame(maxWidth: .infinity)
 
             VStack(spacing: 6) {
@@ -59,8 +59,9 @@ struct MusicPlayerView: View {
                 Text(current.artist)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
-                Text(current.album)
-                    .font(.caption)
+                Text(current.album.uppercased())
+                    .font(.caption2.weight(.semibold))
+                    .tracking(1.5)
                     .foregroundStyle(.tertiary)
             }
         }

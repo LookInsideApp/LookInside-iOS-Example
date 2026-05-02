@@ -164,9 +164,10 @@ private struct ConversationDetail: View {
                     }
                     .padding(.horizontal, 16)
                     .padding(.vertical, 16)
+                    .demoContentWidth(DemoTheme.chatContentMaxWidth)
                 }
                 .background(DemoTheme.groupedBackground)
-                .onChange(of: conversation.messages.count) { _ in
+                .demoOnChange(of: conversation.messages.count) {
                     if let last = conversation.messages.last {
                         withAnimation { proxy.scrollTo(last.id, anchor: .bottom) }
                     }
@@ -253,10 +254,10 @@ private struct ConversationDetail: View {
                 ZStack {
                     LinearGradient(colors: [tint.opacity(0.85), tint.opacity(0.45)], startPoint: .topLeading, endPoint: .bottomTrailing)
                     Image(systemName: symbol)
-                        .font(.system(size: 38, weight: .light))
+                        .font(.system(size: 28, weight: .light))
                         .foregroundStyle(.white)
                 }
-                .frame(width: 200, height: 140)
+                .frame(width: 160, height: 110)
                 .clipShape(RoundedRectangle(cornerRadius: DemoTheme.bubbleCorner, style: .continuous))
             case .audio(let duration):
                 HStack(spacing: 10) {
@@ -328,6 +329,7 @@ private struct ConversationDetail: View {
         }
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
+        .demoContentWidth(DemoTheme.chatContentMaxWidth)
         .background(.bar)
     }
 

@@ -14,14 +14,14 @@ struct SocialFeedView: View {
                         .padding(.top, 8)
 
                     composer
-                        .padding(.horizontal, 16)
 
                     ForEach($posts) { $post in
                         PostCard(post: $post)
-                            .padding(.horizontal, 16)
                     }
                 }
+                .padding(.horizontal, 16)
                 .padding(.vertical, 12)
+                .demoContentWidth(640)
             }
             .background(DemoTheme.groupedBackground)
             .navigationTitle("Feed")
@@ -47,7 +47,6 @@ struct SocialFeedView: View {
                     StoryBubble(story: story)
                 }
             }
-            .padding(.horizontal, 16)
         }
     }
 
@@ -193,7 +192,7 @@ private struct PostCard: View {
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
-            .frame(height: 220)
+            .frame(height: 160)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(hero.eyebrow.uppercased())
