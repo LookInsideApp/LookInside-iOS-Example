@@ -405,7 +405,7 @@ struct Conversation: Identifiable {
                 isOnline: false,
                 isPinned: true,
                 messages: [
-                    ChatMessage(kind: .text("Heads up: 0.1.10 server release is queued."), isFromMe: false, timestamp: minutes(240)),
+                    ChatMessage(kind: .text("Heads up: 0.2.0 server release is queued."), isFromMe: false, timestamp: minutes(240)),
                     ChatMessage(kind: .text("Tagging now."), isFromMe: true, timestamp: minutes(235)),
                     ChatMessage(kind: .audio(duration: 38), isFromMe: false, timestamp: minutes(230)),
                 ]

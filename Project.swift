@@ -13,7 +13,7 @@ let serverPackage: Package = usesLocalServer
     ? .local(path: localServerPackagePath)
     : .remote(
         url: "https://github.com/LookInsideApp/LookInside-Release.git",
-        requirement: .upToNextMajor(from: "0.1.15")
+        requirement: .upToNextMajor(from: "0.2.0")
     )
 let serverProduct = usesLocalServer ? "LookinServer" : "LookInsideServer"
 let configurations: [Configuration] = [
