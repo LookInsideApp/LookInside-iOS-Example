@@ -1,5 +1,5 @@
-#if canImport(LookInsideServerStatic)
-    import LookInsideServerStatic
+#if canImport(LookInsideServer)
+    import LookInsideServer
 #elseif canImport(LookinServer)
     import LookinServer
 #endif

@@ -13,9 +13,9 @@ let serverPackage: Package = usesLocalServer
     ? .local(path: localServerPackagePath)
     : .remote(
         url: "https://github.com/LookInsideApp/LookInside-Release.git",
-        requirement: .upToNextMajor(from: "0.1.13")
+        requirement: .upToNextMajor(from: "0.1.15")
     )
-let serverProduct = usesLocalServer ? "LookinServer" : "LookInsideServerStatic"
+let serverProduct = usesLocalServer ? "LookinServer" : "LookInsideServer"
 let configurations: [Configuration] = [
     .debug(name: "Debug", xcconfig: "Configuration/Development.xcconfig"),
     .release(name: "Release", xcconfig: "Configuration/Release.xcconfig"),

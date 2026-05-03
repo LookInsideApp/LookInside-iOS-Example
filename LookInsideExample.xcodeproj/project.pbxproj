@@ -11,7 +11,7 @@
 		4E6F9A3134071C4474F40C0C /* DemoTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1A9603BE3626540F1EA59A /* DemoTheme.swift */; };
 		511293330303B59B4F106AD6 /* LookInsideExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AA0DF2A43E76503E8728E4 /* LookInsideExampleApp.swift */; };
 		55383767DFF4232D2A116964 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D83087B275DDCEB26C4F136 /* MusicPlayerView.swift */; };
-		821BD65BEEEEB16E84CE1B89 /* LookInsideServerStatic in Frameworks */ = {isa = PBXBuildFile; productRef = EC369773A4114E6DA506DBEF /* LookInsideServerStatic */; };
+		821BD65BEEEEB16E84CE1B89 /* LookInsideServer in Frameworks */ = {isa = PBXBuildFile; productRef = EB4DC37874B654A8206653DA /* LookInsideServer */; };
 		95A8AD50242C9D663F49B758 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0742A2ADFC8BCD664E7076 /* ChatView.swift */; };
 		97CEEE929AF92006F73E8D0C /* LookInsideServerRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09E0DF8D1B50655727F8918 /* LookInsideServerRuntime.swift */; };
 		E28065E9F27B1F80463B6674 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6383C8B62AC5082CEEAF63DE /* RootView.swift */; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821BD65BEEEEB16E84CE1B89 /* LookInsideServerStatic in Frameworks */,
+				821BD65BEEEEB16E84CE1B89 /* LookInsideServer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			);
 			name = LookInsideExample;
 			packageProductDependencies = (
-				EC369773A4114E6DA506DBEF /* LookInsideServerStatic */,
+				EB4DC37874B654A8206653DA /* LookInsideServer */,
 			);
 			productName = LookInsideExample;
 			productReference = 582D8D52F09756ECEDF48CD4 /* LookInsideExample.app */;
@@ -401,15 +401,15 @@
 			repositoryURL = "https://github.com/LookInsideApp/LookInside-Release.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.13;
+				minimumVersion = 0.1.15;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC369773A4114E6DA506DBEF /* LookInsideServerStatic */ = {
+		EB4DC37874B654A8206653DA /* LookInsideServer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = LookInsideServerStatic;
+			productName = LookInsideServer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

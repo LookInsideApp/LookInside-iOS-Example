@@ -3,7 +3,6 @@ import SwiftUI
 @main
 struct LookInsideExampleApp: App {
     init() {
-        _ = LookInsideServerRuntime.isLicensed
         print("[LookInsideExample] launched; LookInsideServer.isLicensed=\(LookInsideServerRuntime.isLicensed)")
     }
 
